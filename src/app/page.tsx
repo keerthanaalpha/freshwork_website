@@ -11,7 +11,7 @@ export default function Home() {
       }}
     >
       <h1 style={{ fontSize: "3em", marginBottom: 20 }}>
-        Welcome to UrbanTech Innovations
+        Welcome to Etihad Airways
       </h1>
       <p style={{ fontSize: "1.2em", maxWidth: 600, margin: "auto" }}>
         Empowering the future with smart technology, automation, and cloud solutions.

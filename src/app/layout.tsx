@@ -9,7 +9,7 @@ import ToasterClient from "@/components/ToasterClient";
 
 
 export const metadata = {
-  title: "UrbanTech Innovations",
+  title: "Etihad Airways",
   description: "Empowering the future with smart technology",
 };
 
@@ -29,7 +29,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
       <body style={bodyStyle}>
         <SessionWrapper session={session}> {/* ✅ wrap client-side */}
           <header style={headerStyle}>
-            <div style={logoStyle}>UrbanTech</div>
+            <div style={logoStyle}>Etihad Airways</div>
             <nav style={navStyle}>
               <a href="/" style={navLinkStyle}>
                 <i className="fas fa-home" style={{ marginRight: 5 }}></i>Home
@@ -58,14 +58,14 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
               </p>
               <p>
                 <i className="fas fa-envelope" style={{ color: "#ff6600", marginRight: 8 }}></i>
-                support@urbantech.ae
+                support@Etihad Airways.ae
               </p>
               <p>
                 <i className="fas fa-map-marker-alt" style={{ color: "#ff6600", marginRight: 8 }}></i>
                 ABC city street, Techcity, AbuDhabi, UAE
               </p>
             </div>
-            <p>© 2025 UrbanTech Innovations. All rights reserved.</p>
+            <p>© 2025 Etihad Airways. All rights reserved.</p>
           </footer>
         </SessionWrapper>
       </body>
