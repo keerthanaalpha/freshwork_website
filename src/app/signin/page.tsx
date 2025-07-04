@@ -9,20 +9,22 @@ export default function SignIn() {
   const [password, setPassword] = useState("");
   const router = useRouter();
 
-  const handleLogin = async () => {
-    const res = await signIn("credentials", {
-      email,
-      password,
-      redirect: false,
-    });
+const handleLogin = async () => {
+  const res = await signIn("credentials", {
+    email,
+    password,
+    redirect: false,
+  });
 
-    if (res?.error) {
-      toast.error("Invalid email or password");
-    } else {
-      toast.success("Signed in successfully");
-      router.push("/");
-    }
-  };
+  if (res?.error) {
+    toast.error("Invalid email or password");
+    return;
+  }
+
+  toast.success("Signed in successfully");
+  router.push("/");
+};
+
 
   return (
     <div className="p-10 max-w-md mx-auto">

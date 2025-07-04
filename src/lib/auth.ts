@@ -12,30 +12,29 @@ export const authOptions: NextAuthOptions = {
         email: { label: "Email", type: "email" },
         password: { label: "Password", type: "password" },
       },
-      async authorize(credentials) {
-        if (!credentials?.email || !credentials.password) return null;
+     async authorize(credentials) {
+  const email = credentials?.email?.toLowerCase().trim();
+  const password = credentials?.password;
+  if (!email || !password) {
+    throw new Error("Missing credentials");
+  }
 
-        const user = await prisma.user.findUnique({
-          where: { email: credentials.email },
-        });
+  const user = await prisma.user.findUnique({ where: { email } });
 
-        if (!user) return null;
+  if (!user) {
+    throw new Error("Invalid email or password");
+  }
 
-        const isValid = await verifyPassword(
-          credentials.password,
-          user.password
-        );
+  const isValid = await verifyPassword(password, user.password);
 
-        if (!isValid) return null;
+  if (!isValid) {
+    throw new Error("Invalid email or password");
+  }
 
-        return { id: user.id, name: user.name, email: user.email };
-      },
+  return { id: user.id, name: user.name, email: user.email };
+},
     }),
   ],
   session: { strategy: "jwt" },
-  secret: process.env.NEXTAUTH_SECRET,
-  pages: {
-    signIn: "/signin",
-    error: "/signin", // ⬅️ Redirect errors here (handles 404 you got earlier)
-  },
+  secret: process.env.NEXTAUTH_SECRET
 };

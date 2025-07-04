@@ -5,6 +5,8 @@ import { authOptions } from "@/lib/auth";
 import AuthentHeader from "@/components/AuthentHeader";
 import SessionWrapper from "@/components/SessionWrapper"; // 👈 import it
 import { ReactNode } from "react";
+import ToasterClient from "@/components/ToasterClient";
+
 
 export const metadata = {
   title: "UrbanTech Innovations",
@@ -44,7 +46,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
               <AuthentHeader />
             </nav>
           </header>
-
+           <ToasterClient/>
           <main>{children}</main>
 
           <footer style={footerStyle}>
