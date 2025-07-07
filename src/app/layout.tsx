@@ -1,12 +1,12 @@
-// src/app/layout.tsx
 import "./globals.css";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
 import AuthentHeader from "@/components/AuthentHeader";
-import SessionWrapper from "@/components/SessionWrapper"; // 👈 import it
+import SessionWrapper from "@/components/SessionWrapper";
 import { ReactNode } from "react";
 import ToasterClient from "@/components/ToasterClient";
-
+import WhiteSupportIcon from "@/components/WhiteSupportIcon";
+import Script from "next/script"; // ✅ Import Script from next/script
 
 export const metadata = {
   title: "Etihad Airways",
@@ -27,26 +27,30 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
         />
       </head>
       <body style={bodyStyle}>
-        <SessionWrapper session={session}> {/* ✅ wrap client-side */}
+        <SessionWrapper session={session}>
           <header style={headerStyle}>
             <div style={logoStyle}>Etihad Airways</div>
             <nav style={navStyle}>
               <a href="/" style={navLinkStyle}>
                 <i className="fas fa-home" style={{ marginRight: 5 }}></i>Home
               </a>
-              <a href="#" style={navLinkStyle}>
+              <a href="/about" style={navLinkStyle}>
                 <i className="fas fa-info-circle" style={{ marginRight: 5 }}></i>About
               </a>
-              <a href="#" style={navLinkStyle}>
-                <i className="fas fa-cogs" style={{ marginRight: 5 }}></i>Services
-              </a>
-              <a href="#" style={navLinkStyle}>
-                <i className="fas fa-envelope" style={{ marginRight: 5 }}></i>More
+              <a
+                className="gap-2"
+                target="_blank"
+                href="https://alphadata840519607028390.freshdesk.com/support/home"
+                style={navLinkStyle}
+              >
+                <WhiteSupportIcon />
+                Support
               </a>
               <AuthentHeader />
             </nav>
           </header>
-           <ToasterClient/>
+
+          <ToasterClient />
           <main>{children}</main>
 
           <footer style={footerStyle}>
@@ -68,10 +72,17 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
             <p>© 2025 Etihad Airways. All rights reserved.</p>
           </footer>
         </SessionWrapper>
+
+        {/* ✅ External Chat Script */}
+        <Script
+          src="//uae.fw-cdn.com/40212737/130364.js"
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   );
 }
+
 const bodyStyle: React.CSSProperties = {
   fontFamily: "'Segoe UI', sans-serif",
   background: "linear-gradient(to bottom right, #0f2027, #203a43, #2c5364)",
@@ -123,9 +134,4 @@ const footerStyle: React.CSSProperties = {
 const contactInfoStyle: React.CSSProperties = {
   marginTop: 20,
   lineHeight: 1.8,
-};
-
-const iconStyle: React.CSSProperties = {
-  color: "#ff6600",
-  marginRight: 8,
 };
