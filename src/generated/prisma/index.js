@@ -131,7 +131,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "E:\\Cognigate\\Tasks\\website\\freshwork_website\\src\\generated\\prisma",
+      "value": "C:\\inetpub\\Freshworks Website\\freshwork_website\\src\\generated\\prisma",
       "fromEnvVar": null
     },
     "config": {
@@ -145,11 +145,11 @@ const config = {
       }
     ],
     "previewFeatures": [],
-    "sourceFilePath": "E:\\Cognigate\\Tasks\\website\\freshwork_website\\prisma\\schema.prisma",
+    "sourceFilePath": "C:\\inetpub\\Freshworks Website\\freshwork_website\\prisma\\schema.prisma",
     "isCustomOutput": true
   },
   "relativeEnvPaths": {
-    "rootEnvPath": "../../../.env",
+    "rootEnvPath": null,
     "schemaEnvPath": "../../../.env"
   },
   "relativePath": "../../../prisma",
@@ -159,7 +159,6 @@ const config = {
     "db"
   ],
   "activeProvider": "postgresql",
-  "postinstall": false,
   "inlineDatasources": {
     "db": {
       "url": {
